@@ -1,0 +1,6 @@
+rm full-log.txt
+../tp1/src/bin/cd++ -mgas-hex.ma -llog -t00:00:00:150:0
+touch full-log.txt
+./acum-log
+rm log*
+python tuple_to_real.py full-log.txt 1
