@@ -3,5 +3,5 @@ rm full-log.txt
 touch full-log.txt
 ./acum-log
 rm log*
-python tuple_to_real.py full-log.txt 1
-python sort-log.py full-log.out > sorted-log.out
+python tuple_to_real.py full-log.txt 0
+python sort-log.py > sorted-full-log.out

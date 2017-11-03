@@ -11,5 +11,4 @@ for f in range(0,n):
 		if c == 1:
 			print "(%d,%d) = [2,-1]"%(f,c)
 			continue
-		print "(%d,%d) = [0,-1]"%(f,c)
 print ""

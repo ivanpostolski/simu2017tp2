@@ -24,5 +24,5 @@ def tuple_to_real(filename, tuple_idx):
 if __name__ == '__main__':
     if len(sys.argv) < 2 or len(sys.argv) > 3:
         raise Exception
-    tuple_idx = int(sys.argv[2]) if len(sys.argv) == 3 else 0
+    tuple_idx = int(sys.argv[2]) if len(sys.argv) >= 3 else 0
     tuple_to_real(sys.argv[1], tuple_idx)
