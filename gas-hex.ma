@@ -17,9 +17,9 @@ initialCellsValue : celdas.val
 localTransition : Reglas
 
 [Reglas]
-rule : {(0,0)} 0 {(0,0)!0 = 8 or (0,0)!0 = 16}
+rule : {(0,0)} 1 {(0,0)!0 = 8 or (0,0)!0 = 16}
 
-rule : {[2,(0,-1)!1+1]} 1 {#macro(NoSoyBorde) and not #macro(VieneGasDeAbajo) and #macro(VieneGasDeIzquierda) and not #macro(VieneGasDeArriba) and (#macro(AtrasSincronizado) and (0,0)!1=-1) or (#macro(AtrasSincronizado) and #macro(AdelanteSincronizadoMasUno))}
+rule : {[2,(0,-1)!1+1]} 1 {(#macro(NoSoyBorde) and not #macro(VieneGasDeAbajo) and #macro(VieneGasDeIzquierda) and not #macro(VieneGasDeArriba)) AND ( (#macro(AtrasSincronizado) and (0,0)!1=-1) or (#macro(AtrasSincronizado) and #macro(AdelanteSincronizadoMasUno)))}
 
 rule : {[4,(-1,-1)!1+1]} 1 {#macro(NoSoyBorde) and not #macro(VieneGasDeAbajo) and not #macro(VieneGasDeIzquierda) and #macro(VieneGasDeArriba) and ( #macro(AtrasSincronizado) and (0,0)!1=-1) or (#macro(AtrasSincronizado) and #macro(AdelanteSincronizadoMasUno))}
 
@@ -43,4 +43,4 @@ rule : {[0,(0,1)!1+1]} 1 {#macro(NoSoyBorde) and not #macro(VieneGasDeAbajo) and
 
 rule : {[3,(0,-1)!1+1]} 1 {#macro(NoSoyBorde) and #macro(VieneGasDeAbajo) and #macro(VieneGasDeIzquierda) and not #macro(VieneGasDeArriba) and ( #macro(AtrasSincronizado) and (0,0)!1=-1) or (#macro(AtrasSincronizado) and #macro(AdelanteSincronizadoMasUno))}
 
-rule : {[28,10]} 0 {t}
+rule : {(0,0)} 1 {t}
