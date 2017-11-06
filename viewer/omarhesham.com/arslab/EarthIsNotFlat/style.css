@@ -1,0 +1,11 @@
+body{background-color: #eee}
+
+#wrapper{margin:auto;width:700px; background-color:#F5F5F5; border-radius: 10px; border:solid 1px #143433; font-family:Georgia, "Times New Roman", Times, serif; font-size:0.95em; line-height:20px; padding:30px}
+
+#choice{border:#47394F 1px solid; color:#900} 
+
+#choice a{color:#333}
+
+#choice a:hover{color:#29635E}
+
+a{ color: #425570; }

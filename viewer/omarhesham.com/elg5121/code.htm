@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="robots" content="noindex">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>ELG5121 Short Course: Facial Motion Capture</title>
+        </head>
+
+        <body>
+        <!--[if lt IE 7]>
+                    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</p>
+                <![endif]-->
+        <div id="header"></div>
+        <div id="nav">
+        	<ul>
+            	<li><a href="index.htm">Mocap Videos</a></li>
+                <li><a href="code.htm">Coding Tutorial</a></li>
+                <li><a href="about.htm">About</a></li>
+            </ul>
+        </div>
+        <div id="main">
+        	<h2>Coding Tutorial</h2>
+        	<div class="section">
+            	
+                <div class="secTitle" style="margin:10 auto">
+                    <iframe  width="700" height="400" src="https://www.youtube.com/embed/njZX7jxYP_o?rel=0" frameborder="0" allowfullscreen></iframe> <p>
+                    This motion capture tutorial demo is implemented in two independent parts. The first captures and tracks the position of facial markers, and is implemented using MATLAB since it has a powerful image processing toolbox. The second is a simple Processing GUI that draws a 2D face emulating the expressions of the user. The Processing sketch talks to the Matlab app using a TCP socket. <br />   <br /> 
+                    </p> 
+
+                </div>
+            </div>
+            
+                <div class="secContent" style="text-align:left; line-height:1.75em">
+                   <strong>To test the application:</strong>
+                   <ul type="square">
+                   	<li>Use a machine with Matlab and <a href="https://processing.org/" target="_blank">Processing</a> installed (if not already).</li>
+                    <li><a href="mocap_tutorial.zip">Download</a> the app source code, and unzip its contents to a suitable location.</li>
+                    <li>In Matlab, Start  <strong>faceTrack.m</strong></li>
+                    <ul><li>A sketch will appear that indicates expected marker placement; place the markers as indicated. </li>
+                      <li>The app is hard-coded to use the color <em>green</em> for markers.</li>
+                    </ul>
+                    <li>Start the processing sketch, <strong>drawFace.pde</strong> when ready. As soon as this is done, Matlab face detection and processing face rigging should start.</li>
+                    <li>That’s it! Make a few faces to test it</li>
+                  </ul>
+                  <img src="demo_faces.png" width="100%" imageborder="0" />
+                </div>
+            <h2>Tutorial</h2>
+        	<div class="section">
+            	<div class="secTitle">
+            	  <p>This subsection provides an outline on how to write a simple motion capture and rigging application. </p>
+            	  <p>The Processing sketch (a Java-based graphics environment) primarily uses curves and basic 2D shapes to draw the animated face, utilising beginner-friendly functions that are well documented <a href="https://processing.org/tutorials/">here</a>.<br />   <br />           
+                Matlab is a powerful tool when it comes to writing image processing applications. This tutorial makes use of some basic Matlab APIs, and highlights the specific workflow methods we discovered were necessary to obtain a clean stable capture from  consumer-grade webcams and non-ideal lighting conditions.</p>
+            	</div>
+            </div>
+            
+                <div class="secContent" style="text-align:left; line-height:1.75em">
+                   <strong>Marker Detection</strong>
+                   <ul type="square">
+                   	<li>To detect a set of markers, the original image needs to be filtered to only pick up the pre-defined color of the markers.</li>
+                    <li>Since an image would be represented in Red, Green and Blue matrices, it is easiest to pick a marker of one of these colors. If this is the case, then it’s a matter of picking up the corresponding matrix. This would provide a grayscale image representing only the chosen color part of the image.</li><ul><li>If another color is to be used, look at rgb2hsv matlab function. HSV is more human method of color representation, and would be easier to pick-up an arbitrary color.</li></ul>
+                    <li>For marker detection purposes, we need to reduce the grayscale image we have, in which each pixel is represented with 8 bits, to a Boolean one, where a pixel is either black or white. im2bw() Matlab function provides that; a threshold is provided to the function to set the degree of sensitivity.</li>
+                    <li>The result image may have some noise, which would consist of small green arrays in the picture. Since we do not wish to detect those, a filtering mechanism is needed. bwareaopen() Matlab function will clear out any connected components less than a certain number of pixels in size.</li>
+                    <li>bwlabel() function can be used to generate an matrix where each connected component is represented with a unique number.</li>
+                    <li>regionprops() function would use the labeled image to generate a list of connected components, with lots of useful information, such as object centorids and bounding boxes. The required parameters are passed to the function.</li>
+                    <li>You now have a list of markers. The next step is to determine how a correct set of markers is detected, and then, what face is expressed. This can be done in many ways. The following is a brief description of faceTrack implementation:</li>
+                    <ul>
+                    	<li>Verification of correct marker detection is done using the number of detected objects, sizes and their relative locations to each other.</li>
+                    	<li>Facial expressions are detected by measuring the distances between markers, and comparing them against the neutral value. The neutral value is stored the first time a face is detected. Also, a normalization is applied to correct against the distance of the face from the camera.</li>
+                    </ul>
+                  </ul>
+                </div>
+            </div>
+        </div>
+        <div id="footer">2015 &copy; Mohammad El-Shabani & Omar Hesham<br />
+        for ELG5121 Multimedia Communications under <a href="http://www.site.uottawa.ca/~elsaddik/" target="new">Prof. Abdulmotaleb El Saddik</a><br />
+        University of Ottawa | Canada </div>
+		</body>
+</html>	
