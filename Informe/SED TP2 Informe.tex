@@ -82,7 +82,7 @@ Con el fin de que dicha actualizaci\'on se realice con las celdas sincronizadas 
 
 Para las direcciones utilizamos una codificaci\'on basada en la escritura \'unica en base 2. La direcci\'on arriba a la derecha representada por $2^0$, a la derecha por $2^1$ y abajo a la derecha por $2^2$. As\'i, el valor $5=2^0+2^2$ en una celda representa que hay dos part\'iculas, una moviendose hacia arriba y la otra hacia abajo (ambas hacia la derecha).
 
-Con esta idea, los valores para identificar los bordes son 8 y 16 para los correspondientes superior e inferior. En los casos que la part\'icula se dirija hacia un borde, \'esta rebotar\'a con direcci\'on opuesta, lo cual es una excepci\'on a la
+Con esta idea, los valores para identificar los bordes son 8 y 16 para los correspondientes superior e inferior. En los casos que la part\'cula se dirija hacia un borde, \'esta rebotar\'a con direcci\'on opuesta, lo cual es una excepci\'on a la
 invarianza del momento. Utilizamos macros para chequear estas condiciones y obtener el comportamiento deseado.
 
 Las dos limitaciones de nuestra implementaci\'on que terminaron siendo las m\'as restrictivas con respecto a los experimentos que quer\'iamos hacer fueron que las part\'iculas no puedan volver y que no podamos tener dos part\'iculas en la misma celda moviendose en la misma direcci\'on.
@@ -93,7 +93,7 @@ Las dos limitaciones de nuestra implementaci\'on que terminaron siendo las m\'as
 %Para testear que las interacciones se sucedieran como era esperado trabajamos con cuadr\'iculas con bordes superior e inferior colocando en el extremo izquierdo de esta una columna de datos iniciales diferentes cada vez, y chequeando que la columna de gas se moviera hacia la derecha resolviendo correctamente las colisiones y manteniendo cada part\'icula la direcci\'on adecuada. 
 
 \subsection*{Trump wall}
-\textbf{Configuración inicial}: Colocar en los bordes superiores e inferiores valores correspondientes a paredes y ningún otro valor en otras celdas.
+\textbf{Configuración inicial}:Colocar en los bordes superiores e inferiores valores correspondientes a paredes y ningún otro valor en otras celdas.
 
 
 \textbf{Configuración esperada}: Que nada cambie.
@@ -112,7 +112,7 @@ Las dos limitaciones de nuestra implementaci\'on que terminaron siendo las m\'as
 \subsection*{Pong}
 \textbf{Configuración inicial}: Setear bordes inferiores y superiores, luego ubicar una partícula con dirección diagonal (1 o 4) en el borde izquierdo.  
 
-\textbf{Configuración esperada}: Que los choques con las paredes se realicen adecuadamente, o sea, pasar de un 1 a un 4 y viceversa.
+\textbf{Configuración esperada}: Que los choques con las paredes se realicen adecuadamente , o sea, pasar de un 1 a un 4 y viceversa.
 
 \subsection*{Gotenks}
 \textbf{Configuración inicial}: Inicializar con dos partículas destinadas a chocar.
@@ -140,10 +140,10 @@ La experimentaci\'on que pudimos llevar a cabo satisfactoriamente fue la de cons
 
 \begin{figure}[htbp]
 \centering
-\subfigure[Estado inicial]{\includegraphics[width=40mm]{1.jpeg}}
-\subfigure[Estado intermedio]{\includegraphics[width=40mm]{2.jpeg}}
-\subfigure[Estado final]{\includegraphics[width=40mm]{3.jpeg}}
-\caption{Ejemplo evoluci\'on simulaci\'on}
+\subfigure[Estado inicial]{\includegraphics[width=40mm]{1.png}}
+\subfigure[Estado intermedio]{\includegraphics[width=40mm]{2.png}}
+\subfigure[Estado final]{\includegraphics[width=40mm]{3.png}}
+\caption{Ejemplo evolución simulación}
 \end{figure}
 
 
